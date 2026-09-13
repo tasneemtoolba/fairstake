@@ -19,16 +19,16 @@ export const RoundSelector = ({ selectedRound, onSelect }: Props) => {
 
   return (
     <div className="flex flex-wrap gap-2 items-center">
-      <span className="text-xs opacity-60">Fair launch round:</span>
+      <span className="text-xs font-medium text-base-content/70">Fair launch round:</span>
       {rounds.map(id => (
         <button
           key={id.toString()}
           type="button"
-          className={`btn btn-xs ${selectedRound === id ? "btn-primary" : "btn-ghost"}`}
+          className={`btn btn-xs ${selectedRound === id ? "btn-primary" : "btn-outline border-base-300"}`}
           onClick={() => onSelect(id)}
         >
           Round {id.toString()}
-          {id === 2n && <span className="ml-1 opacity-70">· reuse passport</span>}
+          {id === 2n && <span className="ml-1 text-base-content/60">· reuse passport</span>}
         </button>
       ))}
     </div>

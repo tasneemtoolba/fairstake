@@ -56,24 +56,25 @@ export const RoundStats = ({ roundId }: Props) => {
           {fillPct}% filled
         </div>
       </div>
-      <div className="stats stats-vertical sm:stats-horizontal shadow bg-base-200 w-full">
-        <div className="stat py-3">
-          <div className="stat-title text-xs">Round #{roundId.toString()}</div>
-          <div className="stat-value text-lg">{labels[Number(roundId)] ?? "Open"}</div>
-          <div className="stat-desc">
+      <div className="grid sm:grid-cols-3 gap-3 w-full">
+        <div className="fs-card px-4 py-3">
+          <p className="fs-eyebrow m-0 mb-1">Round #{roundId.toString()}</p>
+          <p className="text-lg font-semibold m-0">{labels[Number(roundId)] ?? "Open"}</p>
+          <p className="text-xs text-base-content/65 m-0 mt-1">
             {active ? "Open" : "Closed"} · ends {new Date(Number(endTime) * 1000).toLocaleDateString()}
-          </div>
+          </p>
         </div>
-        <div className="stat py-3">
-          <div className="stat-title text-xs">Pool</div>
-          <div className="stat-value text-lg text-sm md:text-lg">
+        <div className="fs-card px-4 py-3">
+          <p className="fs-eyebrow m-0 mb-1">Pool</p>
+          <p className="text-lg font-semibold m-0 tabular-nums">
             {formatEther(totalCommitted)} / {formatEther(totalCap)}
-          </div>
+          </p>
+          <p className="text-xs text-base-content/65 m-0 mt-1">USDC committed</p>
         </div>
-        <div className="stat py-3">
-          <div className="stat-title text-xs">You</div>
-          <div className="stat-value text-lg">{formatEther(myCommit ?? 0n)}</div>
-          <div className="stat-desc">max {formatEther(maxPerInvestor)}</div>
+        <div className="fs-card px-4 py-3">
+          <p className="fs-eyebrow m-0 mb-1">You</p>
+          <p className="text-lg font-semibold m-0 tabular-nums">{formatEther(myCommit ?? 0n)}</p>
+          <p className="text-xs text-base-content/65 m-0 mt-1">max {formatEther(maxPerInvestor)} USDC</p>
         </div>
       </div>
     </div>
