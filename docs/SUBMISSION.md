@@ -8,13 +8,13 @@ Proof of person, not proof of passport.
 
 ## Description (paste into ETHGlobal)
 
-Fair launches get sybil-farmed. Full KYC is overkill for small pools. **FairStake** separates human eligibility from capital commitment:
+Fair launches should be fair — but people cheat with many fake wallets, and full ID checks are too heavy for small pools. **FairStake** fixes this:
 
-1. **World Selfie Check** — one live human, one nullifier, enforced on-chain
-2. **Investor passport** — ENS-shaped credential on Sepolia, reusable across rounds
-3. **Arc USDC pool** — fair-launch commits with hard caps; sybils fail closed
+1. **World Selfie Check** — prove you're a real person once (one person = one identity, enforced on-chain)
+2. **Investor passport** — a reusable digital ID on Ethereum, works across multiple launches
+3. **Arc USDC pool** — invest USDC with caps per person; unverified wallets are blocked
 
-**The Sybil Test:** verified investor commits → fresh wallet reverts → same passport works on Round 2 without re-selfie.
+**The test:** verified user invests → new wallet gets rejected → same passport works on Round 2 with no second selfie.
 
 Built with Scaffold-ETH 2, World IDKit v4, InvestorPassportRegistry, FairStakePool.
 
