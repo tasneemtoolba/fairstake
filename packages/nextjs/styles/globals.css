@@ -164,3 +164,60 @@
   border-radius: 999px;
   background: var(--color-base-100);
 }
+
+.fs-step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  background: var(--color-primary);
+  color: var(--color-primary-content);
+}
+
+.fs-step-badge-success {
+  background: color-mix(in srgb, var(--color-success) 14%, var(--color-base-100));
+  color: var(--color-success);
+  border: 1px solid color-mix(in srgb, var(--color-success) 28%, transparent);
+}
+
+.fs-step-badge-danger {
+  background: color-mix(in srgb, var(--color-error) 12%, var(--color-base-100));
+  color: var(--color-error);
+  border: 1px solid color-mix(in srgb, var(--color-error) 26%, transparent);
+}
+
+.fs-checklist-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem 1.25rem;
+}
+
+.fs-checklist-row + .fs-checklist-row {
+  border-top: 1px solid var(--color-base-300);
+}
+
+.fs-page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.fs-page-title {
+  font-size: 1.875rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0;
+  line-height: 1.15;
+}
+
+.fs-page-lead {
+  font-size: 0.9375rem;
+  color: color-mix(in srgb, var(--color-base-content) 65%, transparent);
+  margin: 0;
+  max-width: 36rem;
+}
