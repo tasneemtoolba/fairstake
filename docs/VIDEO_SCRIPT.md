@@ -1,104 +1,106 @@
-# Demo Video Script — read this aloud (2:45–3:30)
+# Demo Video Script — simple words (2:45–3:30)
 
 **Record at:** [fairstake.vercel.app/theater](https://fairstake.vercel.app/theater)  
-**Before recording:** MetaMask on **Arc Testnet** · funded wallet · second empty wallet ready  
+**Before recording:** MetaMask on **Arc Testnet** · wallet with USDC · second empty wallet ready  
 **Rules:** 720p+ · your real voice · 2–4 minutes · laptop screen (not phone)
 
-Click the **1–4 act buttons** at the top as you move through each section (gold bar = current act).
+Click the **1–4 buttons** at the top as you move through each part (gold bar = where you are now).
 
 ---
 
-## 0:00 — Hook (15 sec)
+## The idea in one sentence
 
-**Screen:** `/theater` loaded · click act **1**
-
-**Say exactly:**
-> "Fair launches get sybil-farmed. Every pool asks for KYC again. **FairStake** separates two things: prove you're a unique human once, then commit capital on-chain. We call it **proof of person, not proof of passport**."
+**One real person, one wallet, one shot** — verify once with a selfie, carry a passport, invest in USDC pools. Fake wallets can't sneak in.
 
 ---
 
-## 0:15 — Act 1: The problem (25 sec)
+## 0:00 — Start (15 sec)
 
-**Screen:** scroll to **KYC Treadmill vs Passport** · point at scrolling red forms, then the passport card
+**Screen:** `/theater` · click **1**
 
-**Say exactly:**
-> "Legacy fair launches look like this — upload ID, utility bill, selfie number three, form seven-B, every single time. Fifty sybil wallets still slip through. FairStake replaces that treadmill with one **investor passport** — verify once, reuse everywhere."
-
----
-
-## 0:40 — Act 2: Sybil attack (30 sec)
-
-**Screen:** click act **2** · click **Launch 50 sybils** · wait for REVERTED
-
-**Say exactly:**
-> "Here's the attack. Fifty bots hit one pool. Watch the simulation — **fifty launched, zero admitted, result reverted**. On Arc Testnet this isn't cosmetic: unverified wallets hit the contract and **fail closed**. Sybils never get a seat."
+**Say:**
+> "Community investment pools are supposed to be open to everyone — but one person can spin up fifty wallets and grab half the spots. And every new launch makes you upload your ID all over again. **FairStake** is different: prove you're human once, get a passport, invest with USDC. **Proof of person, not proof of passport.**"
 
 ---
 
-## 1:10 — Act 3: Live proof (55 sec)
+## 0:15 — Part 1: The problem (25 sec)
 
-**Screen:** click act **3** · **Connect Wallet** · click **Verify human** (dev mode or World Selfie Check)
+**Screen:** scroll to **KYC Treadmill vs Passport**
 
-**Say exactly:**
-> "Live on Arc Testnet. I connect my wallet and run **World Selfie Check** — one human, one nullifier."
-
-**Screen:** passport card appears with ENS-shaped name
-
-**Say exactly:**
-> "That mints my **investor passport** — ENS-shaped credential, max commit and expiry on-chain. World verifies the human, ENS carries the credential."
-
-**Screen:** enter **10** USDC · click **Commit to Round 1** · confirm MetaMask
-
-**Say exactly:**
-> "Now I commit ten USDC to Round 1. Arc settles native USDC — the pool enforces per-investor caps. Verified investor: **success**."
+**Say:**
+> "The old way: upload ID, bills, selfies — every single launch. Bots still get through. The FairStake way: verify once, get an **investor passport**, use it on every launch."
 
 ---
 
-## 2:05 — Act 4: The Sybil Test (45 sec)
+## 0:40 — Part 2: Fake wallets attack (30 sec)
 
-**Screen:** click act **4** · switch MetaMask to **second wallet** (never verified) · try **Commit**
+**Screen:** click **2** · click **Launch 50 sybils** · wait for REVERTED
 
-**Say exactly:**
-> "Sybil test. Fresh wallet — never verified. I try to commit… and the transaction **reverts**. Fail closed."
-
-**Screen:** switch back to verified wallet · click **Round 2** · commit again (no re-verify)
-
-**Say exactly:**
-> "Same human, same passport — Round 2. **No second selfie.** The credential is portable. Sybils blocked, humans reuse."
+**Say:**
+> "Imagine fifty fake wallets attacking one pool. Watch — **fifty try, zero get in, all rejected**. On Arc testnet, if you're not verified, the smart contract **blocks you**. No tricks."
 
 ---
 
-## 2:50 — Close (10 sec)
+## 1:10 — Part 3: Live demo (55 sec)
 
-**Screen:** scroll to top or home hero
+**Screen:** click **3** · **Connect Wallet** · click **Verify human**
 
-**Say exactly:**
-> "**FairStake** — investor passports for fair launches. Proof of person, not proof of passport. Built with World, ENS, and Arc."
+**Say:**
+> "Live demo on Arc. I connect my wallet and prove I'm a real person with **World Selfie Check**."
 
----
+**Screen:** passport card appears
 
-## Quick checklist while recording
+**Say:**
+> "I get an **investor passport** — like a reusable ID. It shows my name, how much I can invest, and when it expires."
 
-| # | Show | Say the key line |
-|---|------|------------------|
-| 1 | KYC treadmill vs passport | "Verify once, reuse everywhere" |
-| 2 | Launch 50 sybils → REVERTED | "Fifty launched, zero admitted" |
-| 3 | Verify → passport → Round 1 commit | "World · ENS · Arc — live on testnet" |
-| 4 | Fresh wallet reverts | "Sybils blocked" |
-| 5 | Round 2 without re-selfie | "Same passport, no second selfie" |
+**Screen:** enter **10** USDC · click **Commit to Round 1**
+
+**Say:**
+> "I put ten USDC into Round 1. Real money, real contract. Verified user — **it works**."
 
 ---
 
-## If something breaks on camera
+## 2:05 — Part 4: The test (45 sec)
 
-| Issue | What to say |
-|-------|-------------|
-| Verify button slow | "World IDKit confirms humanity off-device; passport mints server-side." |
-| Commit pending | "Arc Testnet confirmation — native USDC commit." |
-| Revert on sybil wallet | "That's the point — contract reverts unverified addresses." |
+**How it works:** your passport lives on **one wallet** — the wallet you verified. One person = one selfie = one wallet. You **cannot** verify a second wallet (your human ID is already used). That's what stops one person from running many wallets.
+
+**Test A — fake wallet (30 sec)**  
+**Screen:** click **4** · switch MetaMask to a **second wallet** (never verified) · try **Commit**
+
+**Say:**
+> "I switch to a **different wallet** — like a bot would. It never got verified. I try to invest… **blocked**."
+
+**Test B — same wallet, new round (15 sec)**  
+**Screen:** switch **back to your original verified wallet** · click **Round 2** · commit (no new selfie)
+
+**Say:**
+> "I switch back to **the wallet I verified**. Round 2 — **no second selfie**. Same passport, next launch. I don't upload my ID again."
 
 ---
 
-## UI note (why sections looked gray)
+## 2:50 — End (10 sec)
 
-Judge Theater used to dim non-active acts with 50% opacity — they looked disabled but were still clickable. **Fixed:** active act now gets a **gold left bar** only; everything stays full brightness.
+**Say:**
+> "**FairStake** — fair launches for real people. Built with World, ENS, and Arc."
+
+---
+
+## Cheat sheet (pin while recording)
+
+| Show | Say |
+|------|-----|
+| KYC vs passport | "Verify once, use everywhere" |
+| Launch 50 sybils | "Fifty try, zero get in" |
+| Verify + commit | "Real person → passport → invest" |
+| Second wallet fails | "Unverified wallet blocked" |
+| Round 2 on same wallet | "Same wallet, next round, no new selfie" |
+
+---
+
+## If something breaks
+
+| Problem | Say |
+|---------|-----|
+| Verify is slow | "World checks I'm a real person; then the passport is created." |
+| Transaction waiting | "Waiting for Arc testnet to confirm." |
+| New wallet rejected | "That's the point — only verified people can invest." |
