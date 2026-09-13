@@ -1,0 +1,370 @@
+{
+  "address": "0x53faf932922b322873d68cd21d0e3581b0273766",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "initialOwner",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableInvalidOwner",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableUnauthorizedAccount",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "holder",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "ensName",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "maxCommitUsd",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "expiresAt",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "worldNullifier",
+          "type": "bytes32"
+        }
+      ],
+      "name": "PassportIssued",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "holder",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "ensName",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "maxCommitUsd",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "expiresAt",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "worldNullifier",
+          "type": "bytes32"
+        }
+      ],
+      "name": "issuePassport",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "passports",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "ensName",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "maxCommitUsd",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "expiresAt",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "humanVerified",
+          "type": "bool"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "worldNullifier",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "contractName": "InvestorPassportRegistry",
+  "sourceName": "contracts/InvestorPassportRegistry.sol",
+  "bytecode": "0x6080604052348015600e575f5ffd5b50604051610747380380610747833981016040819052602b9160b4565b806001600160a01b038116605857604051631e4fbdf760e01b81525f600482015260240160405180910390fd5b605f816065565b505060df565b5f80546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b5f6020828403121560c3575f5ffd5b81516001600160a01b038116811460d8575f5ffd5b9392505050565b61065b806100ec5f395ff3fe608060405234801561000f575f5ffd5b5060043610610055575f3560e01c80636c28a6ef14610059578063715018a61461006e5780638da5cb5b14610076578063e37c132b14610095578063f2fde38b146100b9575b5f5ffd5b61006c610067366004610385565b6100cc565b005b61006c6101e0565b5f546040516001600160a01b0390911681526020015b60405180910390f35b6100a86100a336600461041c565b6101f3565b60405161008c95949392919061043c565b61006c6100c736600461041c565b6102ad565b6100d46102ef565b6040518060a0016040528086868080601f0160208091040260200160405190810160405280939291908181526020018383808284375f9201829052509385525050506020808301879052604080840187905260016060850181905260809094018690526001600160a01b038b16835292905220815181906101559082610525565b50602082015160018201556040808301516002830155606083015160038301805460ff1916911515919091179055608090920151600490910155516001600160a01b038716907f24390ecad3fd712f4259bb7cf144e0d1036871940af558b00daccbc5ab064094906101d090889088908890889088906105e0565b60405180910390a2505050505050565b6101e86102ef565b6101f15f61031b565b565b60016020525f908152604090208054819061020d906104a1565b80601f0160208091040260200160405190810160405280929190818152602001828054610239906104a1565b80156102845780601f1061025b57610100808354040283529160200191610284565b820191905f5260205f20905b81548152906001019060200180831161026757829003601f168201915b5050506001840154600285015460038601546004909601549495919490935060ff909116915085565b6102b56102ef565b6001600160a01b0381166102e357604051631e4fbdf760e01b81525f60048201526024015b60405180910390fd5b6102ec8161031b565b50565b5f546001600160a01b031633146101f15760405163118cdaa760e01b81523360048201526024016102da565b5f80546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b80356001600160a01b0381168114610380575f5ffd5b919050565b5f5f5f5f5f5f60a0878903121561039a575f5ffd5b6103a38761036a565b9550602087013567ffffffffffffffff8111156103be575f5ffd5b8701601f810189136103ce575f5ffd5b803567ffffffffffffffff8111156103e4575f5ffd5b8960208284010111156103f5575f5ffd5b96996020919091019850959660408101359660608201359650608090910135945092505050565b5f6020828403121561042c575f5ffd5b6104358261036a565b9392505050565b60a081525f86518060a0840152806020890160c085015e5f60c0828501810191909152602084019790975260408301959095525091151560608301526080820152601f909101601f19160101919050565b634e487b7160e01b5f52604160045260245ffd5b600181811c908216806104b557607f821691505b6020821081036104d357634e487b7160e01b5f52602260045260245ffd5b50919050565b601f82111561052057805f5260205f20601f840160051c810160208510156104fe5750805b601f840160051c820191505b8181101561051d575f815560010161050a565b50505b505050565b815167ffffffffffffffff81111561053f5761053f61048d565b6105538161054d84546104a1565b846104d9565b6020601f821160018114610585575f831561056e5750848201515b5f19600385901b1c1916600184901b17845561051d565b5f84815260208120601f198516915b828110156105b45787850151825560209485019460019092019101610594565b50848210156105d157868401515f19600387901b60f8161c191681555b50505050600190811b01905550565b60808152846080820152848660a08301375f60a086830101525f60a0601f19601f8801168301019050846020830152836040830152826060830152969550505050505056fea2646970667358221220e425914dc30b86995c3089719925b388099fc88085c0d00758ee05acbda38bbe64736f6c634300081e0033",
+  "deployedBytecode": "0x608060405234801561000f575f5ffd5b5060043610610055575f3560e01c80636c28a6ef14610059578063715018a61461006e5780638da5cb5b14610076578063e37c132b14610095578063f2fde38b146100b9575b5f5ffd5b61006c610067366004610385565b6100cc565b005b61006c6101e0565b5f546040516001600160a01b0390911681526020015b60405180910390f35b6100a86100a336600461041c565b6101f3565b60405161008c95949392919061043c565b61006c6100c736600461041c565b6102ad565b6100d46102ef565b6040518060a0016040528086868080601f0160208091040260200160405190810160405280939291908181526020018383808284375f9201829052509385525050506020808301879052604080840187905260016060850181905260809094018690526001600160a01b038b16835292905220815181906101559082610525565b50602082015160018201556040808301516002830155606083015160038301805460ff1916911515919091179055608090920151600490910155516001600160a01b038716907f24390ecad3fd712f4259bb7cf144e0d1036871940af558b00daccbc5ab064094906101d090889088908890889088906105e0565b60405180910390a2505050505050565b6101e86102ef565b6101f15f61031b565b565b60016020525f908152604090208054819061020d906104a1565b80601f0160208091040260200160405190810160405280929190818152602001828054610239906104a1565b80156102845780601f1061025b57610100808354040283529160200191610284565b820191905f5260205f20905b81548152906001019060200180831161026757829003601f168201915b5050506001840154600285015460038601546004909601549495919490935060ff909116915085565b6102b56102ef565b6001600160a01b0381166102e357604051631e4fbdf760e01b81525f60048201526024015b60405180910390fd5b6102ec8161031b565b50565b5f546001600160a01b031633146101f15760405163118cdaa760e01b81523360048201526024016102da565b5f80546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b80356001600160a01b0381168114610380575f5ffd5b919050565b5f5f5f5f5f5f60a0878903121561039a575f5ffd5b6103a38761036a565b9550602087013567ffffffffffffffff8111156103be575f5ffd5b8701601f810189136103ce575f5ffd5b803567ffffffffffffffff8111156103e4575f5ffd5b8960208284010111156103f5575f5ffd5b96996020919091019850959660408101359660608201359650608090910135945092505050565b5f6020828403121561042c575f5ffd5b6104358261036a565b9392505050565b60a081525f86518060a0840152806020890160c085015e5f60c0828501810191909152602084019790975260408301959095525091151560608301526080820152601f909101601f19160101919050565b634e487b7160e01b5f52604160045260245ffd5b600181811c908216806104b557607f821691505b6020821081036104d357634e487b7160e01b5f52602260045260245ffd5b50919050565b601f82111561052057805f5260205f20601f840160051c810160208510156104fe5750805b601f840160051c820191505b8181101561051d575f815560010161050a565b50505b505050565b815167ffffffffffffffff81111561053f5761053f61048d565b6105538161054d84546104a1565b846104d9565b6020601f821160018114610585575f831561056e5750848201515b5f19600385901b1c1916600184901b17845561051d565b5f84815260208120601f198516915b828110156105b45787850151825560209485019460019092019101610594565b50848210156105d157868401515f19600387901b60f8161c191681555b50505050600190811b01905550565b60808152846080820152848660a08301375f60a086830101525f60a0601f19601f8801168301019050846020830152836040830152826060830152969550505050505056fea2646970667358221220e425914dc30b86995c3089719925b388099fc88085c0d00758ee05acbda38bbe64736f6c634300081e0033",
+  "linkReferences": {},
+  "deployedLinkReferences": {},
+  "immutableReferences": {},
+  "inputSourceName": "project/contracts/InvestorPassportRegistry.sol",
+  "devdoc": {
+    "errors": {
+      "OwnableInvalidOwner(address)": [
+        {
+          "details": "The owner is not a valid owner account. (eg. `address(0)`)"
+        }
+      ],
+      "OwnableUnauthorizedAccount(address)": [
+        {
+          "details": "The caller account is not authorized to perform an operation."
+        }
+      ]
+    },
+    "kind": "dev",
+    "methods": {
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "renounceOwnership()": {
+        "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner."
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      }
+    },
+    "title": "InvestorPassportRegistry",
+    "version": 1
+  },
+  "evm": {
+    "gasEstimates": {
+      "creation": {
+        "codeDepositCost": "325400",
+        "executionCost": "infinite",
+        "totalCost": "infinite"
+      },
+      "external": {
+        "issuePassport(address,string,uint256,uint256,bytes32)": "infinite",
+        "owner()": "2310",
+        "passports(address)": "infinite",
+        "renounceOwnership()": "infinite",
+        "transferOwnership(address)": "28395"
+      }
+    }
+  },
+  "metadata": "{\"compiler\":{\"version\":\"0.8.30+commit.73712a01\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"initialOwner\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"OwnableInvalidOwner\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"OwnableUnauthorizedAccount\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"holder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"ensName\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"maxCommitUsd\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"expiresAt\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"worldNullifier\",\"type\":\"bytes32\"}],\"name\":\"PassportIssued\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"holder\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"ensName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"maxCommitUsd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiresAt\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"worldNullifier\",\"type\":\"bytes32\"}],\"name\":\"issuePassport\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"passports\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"ensName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"maxCommitUsd\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiresAt\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"humanVerified\",\"type\":\"bool\"},{\"internalType\":\"bytes32\",\"name\":\"worldNullifier\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"errors\":{\"OwnableInvalidOwner(address)\":[{\"details\":\"The owner is not a valid owner account. (eg. `address(0)`)\"}],\"OwnableUnauthorizedAccount(address)\":[{\"details\":\"The caller account is not authorized to perform an operation.\"}]},\"kind\":\"dev\",\"methods\":{\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}},\"title\":\"InvestorPassportRegistry\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"Sepolia anchor for ENS-shaped investor credentials (FairStake passport).         Text-record keys mirror ENSv2 EAC fields until subname is minted on ENS.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"project/contracts/InvestorPassportRegistry.sol\":\"InvestorPassportRegistry\"},\"evmVersion\":\"prague\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\"project/:@openzeppelin/contracts/=npm/@openzeppelin/contracts@5.0.2/\"]},\"sources\":{\"npm/@openzeppelin/contracts@5.0.2/access/Ownable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)\\n\\npragma solidity ^0.8.20;\\n\\nimport {Context} from \\\"../utils/Context.sol\\\";\\n\\n/**\\n * @dev Contract module which provides a basic access control mechanism, where\\n * there is an account (an owner) that can be granted exclusive access to\\n * specific functions.\\n *\\n * The initial owner is set to the address provided by the deployer. This can\\n * later be changed with {transferOwnership}.\\n *\\n * This module is used through inheritance. It will make available the modifier\\n * `onlyOwner`, which can be applied to your functions to restrict their use to\\n * the owner.\\n */\\nabstract contract Ownable is Context {\\n    address private _owner;\\n\\n    /**\\n     * @dev The caller account is not authorized to perform an operation.\\n     */\\n    error OwnableUnauthorizedAccount(address account);\\n\\n    /**\\n     * @dev The owner is not a valid owner account. (eg. `address(0)`)\\n     */\\n    error OwnableInvalidOwner(address owner);\\n\\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\\n\\n    /**\\n     * @dev Initializes the contract setting the address provided by the deployer as the initial owner.\\n     */\\n    constructor(address initialOwner) {\\n        if (initialOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(initialOwner);\\n    }\\n\\n    /**\\n     * @dev Throws if called by any account other than the owner.\\n     */\\n    modifier onlyOwner() {\\n        _checkOwner();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Returns the address of the current owner.\\n     */\\n    function owner() public view virtual returns (address) {\\n        return _owner;\\n    }\\n\\n    /**\\n     * @dev Throws if the sender is not the owner.\\n     */\\n    function _checkOwner() internal view virtual {\\n        if (owner() != _msgSender()) {\\n            revert OwnableUnauthorizedAccount(_msgSender());\\n        }\\n    }\\n\\n    /**\\n     * @dev Leaves the contract without owner. It will not be possible to call\\n     * `onlyOwner` functions. Can only be called by the current owner.\\n     *\\n     * NOTE: Renouncing ownership will leave the contract without an owner,\\n     * thereby disabling any functionality that is only available to the owner.\\n     */\\n    function renounceOwnership() public virtual onlyOwner {\\n        _transferOwnership(address(0));\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Can only be called by the current owner.\\n     */\\n    function transferOwnership(address newOwner) public virtual onlyOwner {\\n        if (newOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(newOwner);\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Internal function without access restriction.\\n     */\\n    function _transferOwnership(address newOwner) internal virtual {\\n        address oldOwner = _owner;\\n        _owner = newOwner;\\n        emit OwnershipTransferred(oldOwner, newOwner);\\n    }\\n}\\n\",\"keccak256\":\"0xff6d0bb2e285473e5311d9d3caacb525ae3538a80758c10649a4d61029b017bb\",\"license\":\"MIT\"},\"npm/@openzeppelin/contracts@5.0.2/utils/Context.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.1) (utils/Context.sol)\\n\\npragma solidity ^0.8.20;\\n\\n/**\\n * @dev Provides information about the current execution context, including the\\n * sender of the transaction and its data. While these are generally available\\n * via msg.sender and msg.data, they should not be accessed in such a direct\\n * manner, since when dealing with meta-transactions the account sending and\\n * paying for execution may not be the actual sender (as far as an application\\n * is concerned).\\n *\\n * This contract is only required for intermediate, library-like contracts.\\n */\\nabstract contract Context {\\n    function _msgSender() internal view virtual returns (address) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes calldata) {\\n        return msg.data;\\n    }\\n\\n    function _contextSuffixLength() internal view virtual returns (uint256) {\\n        return 0;\\n    }\\n}\\n\",\"keccak256\":\"0x493033a8d1b176a037b2cc6a04dad01a5c157722049bbecf632ca876224dd4b2\",\"license\":\"MIT\"},\"project/contracts/InvestorPassportRegistry.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.20;\\n\\nimport \\\"@openzeppelin/contracts/access/Ownable.sol\\\";\\n\\n/**\\n * @title InvestorPassportRegistry\\n * @notice Sepolia anchor for ENS-shaped investor credentials (FairStake passport).\\n *         Text-record keys mirror ENSv2 EAC fields until subname is minted on ENS.\\n */\\ncontract InvestorPassportRegistry is Ownable {\\n    struct Passport {\\n        string ensName;\\n        uint256 maxCommitUsd;\\n        uint256 expiresAt;\\n        bool humanVerified;\\n        bytes32 worldNullifier;\\n    }\\n\\n    mapping(address => Passport) public passports;\\n\\n    event PassportIssued(\\n        address indexed holder,\\n        string ensName,\\n        uint256 maxCommitUsd,\\n        uint256 expiresAt,\\n        bytes32 worldNullifier\\n    );\\n\\n    constructor(address initialOwner) Ownable(initialOwner) {}\\n\\n    function issuePassport(\\n        address holder,\\n        string calldata ensName,\\n        uint256 maxCommitUsd,\\n        uint256 expiresAt,\\n        bytes32 worldNullifier\\n    ) external onlyOwner {\\n        passports[holder] = Passport({\\n            ensName: ensName,\\n            maxCommitUsd: maxCommitUsd,\\n            expiresAt: expiresAt,\\n            humanVerified: true,\\n            worldNullifier: worldNullifier\\n        });\\n        emit PassportIssued(holder, ensName, maxCommitUsd, expiresAt, worldNullifier);\\n    }\\n}\\n\",\"keccak256\":\"0x2e8081a6335202eca8592633070a69d3a2c66e8576dcf1ba19a3acc6b7467dbf\",\"license\":\"MIT\"}},\"version\":1}",
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 8,
+        "contract": "project/contracts/InvestorPassportRegistry.sol:InvestorPassportRegistry",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 199,
+        "contract": "project/contracts/InvestorPassportRegistry.sol:InvestorPassportRegistry",
+        "label": "passports",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_address,t_struct(Passport)194_storage)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_mapping(t_address,t_struct(Passport)194_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct InvestorPassportRegistry.Passport)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Passport)194_storage"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_struct(Passport)194_storage": {
+        "encoding": "inplace",
+        "label": "struct InvestorPassportRegistry.Passport",
+        "members": [
+          {
+            "astId": 185,
+            "contract": "project/contracts/InvestorPassportRegistry.sol:InvestorPassportRegistry",
+            "label": "ensName",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 187,
+            "contract": "project/contracts/InvestorPassportRegistry.sol:InvestorPassportRegistry",
+            "label": "maxCommitUsd",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 189,
+            "contract": "project/contracts/InvestorPassportRegistry.sol:InvestorPassportRegistry",
+            "label": "expiresAt",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 191,
+            "contract": "project/contracts/InvestorPassportRegistry.sol:InvestorPassportRegistry",
+            "label": "humanVerified",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_bool"
+          },
+          {
+            "astId": 193,
+            "contract": "project/contracts/InvestorPassportRegistry.sol:InvestorPassportRegistry",
+            "label": "worldNullifier",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_bytes32"
+          }
+        ],
+        "numberOfBytes": "160"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "notice": "Sepolia anchor for ENS-shaped investor credentials (FairStake passport).         Text-record keys mirror ENSv2 EAC fields until subname is minted on ENS.",
+    "version": 1
+  },
+  "argsData": "0x000000000000000000000000c943bf2b3ee4f94b66208a80ee3d168ecf0fc7de",
+  "transaction": {
+    "hash": "0x9511ca583a71cea78ac64f488c7e49a38d64b0e0141b36add3998d58dd72aa0a",
+    "nonce": "0x0",
+    "origin": "0xc943bf2b3ee4f94b66208a80ee3d168ecf0fc7de"
+  },
+  "receipt": {
+    "blockHash": "0xaf274d450b8383271f9396a84c885ae3cb3a1f7f92ffeeed969fbfcadea72e68",
+    "blockNumber": "0xb27730",
+    "transactionIndex": "0x51"
+  }
+}
