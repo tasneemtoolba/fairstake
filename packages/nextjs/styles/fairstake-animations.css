@@ -1,0 +1,45 @@
+@keyframes fairstake-passport-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fairstake-treadmill {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fairstake-bot-march {
+  0% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(42%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(48%);
+    opacity: 0.2;
+  }
+}
+
+.animate-fairstake-passport-reveal {
+  animation: fairstake-passport-reveal 0.5s ease-out forwards;
+}
+
+.animate-fairstake-treadmill {
+  animation: fairstake-treadmill 12s linear infinite;
+}
