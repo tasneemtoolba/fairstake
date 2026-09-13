@@ -4,10 +4,11 @@ import { hardhat } from "viem/chains";
 import { SwitchTheme } from "~~/components/SwitchTheme";
 import { Faucet } from "~~/components/scaffold-eth";
 import { useTargetNetwork } from "~~/hooks/scaffold-eth/useTargetNetwork";
+import scaffoldConfig from "~~/scaffold.config";
 
 export const Footer = () => {
   const { targetNetwork } = useTargetNetwork();
-  const isLocalNetwork = targetNetwork.id === hardhat.id;
+  const isLocalNetwork = !scaffoldConfig.liveDeploy && targetNetwork.id === hardhat.id;
 
   return (
     <>

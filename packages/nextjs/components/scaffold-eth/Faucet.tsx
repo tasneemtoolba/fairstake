@@ -32,6 +32,8 @@ export const Faucet = () => {
   const faucetTxn = useTransactor(localWalletClient);
 
   useEffect(() => {
+    if (ConnectedChain?.id !== hardhat.id) return;
+
     const getFaucetAddress = async () => {
       try {
         const accounts = await localWalletClient.getAddresses();
@@ -53,7 +55,7 @@ export const Faucet = () => {
       }
     };
     getFaucetAddress();
-  }, []);
+  }, [ConnectedChain?.id]);
 
   const sendETH = async () => {
     if (!faucetAddress || !inputAddress) {

@@ -7,6 +7,7 @@ import { hardhat } from "viem/chains";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick, useTargetNetwork } from "~~/hooks/scaffold-eth";
+import scaffoldConfig from "~~/scaffold.config";
 
 type HeaderMenuLink = { label: string; href: string };
 
@@ -45,7 +46,7 @@ export const HeaderMenuLinks = () => {
 
 export const Header = () => {
   const { targetNetwork } = useTargetNetwork();
-  const isLocalNetwork = targetNetwork.id === hardhat.id;
+  const isLocalNetwork = !scaffoldConfig.liveDeploy && targetNetwork.id === hardhat.id;
   const burgerMenuRef = useRef<HTMLDetailsElement>(null);
 
   useOutsideClick(burgerMenuRef, () => {

@@ -20,7 +20,7 @@ export const DEFAULT_ALCHEMY_API_KEY = "IZYEU2cWBgnFmgiTAgpWD";
 const liveDeploy = process.env.VERCEL === "1" || process.env.NEXT_PUBLIC_LIVE_DEPLOY === "true";
 
 const scaffoldConfig = {
-  targetNetworks: [chains.hardhat, arcTestnet, chains.sepolia],
+  targetNetworks: liveDeploy ? [arcTestnet, chains.sepolia] : [chains.hardhat, arcTestnet, chains.sepolia],
   defaultNetworkId: liveDeploy ? arcTestnet.id : chains.hardhat.id,
   liveDeploy,
 
