@@ -221,3 +221,16 @@
   margin: 0;
   max-width: 36rem;
 }
+
+/* Theater spotlight — highlight active act without dimming others to look disabled */
+.fs-spotlight-active {
+  border-left: 3px solid var(--color-accent);
+  padding-left: 1rem;
+  margin-left: -1rem;
+}
+
+.fs-spotlight-idle {
+  border-left: 3px solid transparent;
+  padding-left: 1rem;
+  margin-left: -1rem;
+}

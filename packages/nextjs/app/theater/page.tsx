@@ -64,13 +64,13 @@ export default function TheaterPage() {
 
       <ProofJourney hasCommitted={hasCommitted} />
 
-      <div className={spotlight === 1 ? "" : "opacity-50"}>
+      <div className={spotlight === 1 ? "fs-spotlight-active" : "fs-spotlight-idle"}>
         <KycTreadmill />
       </div>
-      <div className={spotlight === 2 ? "" : "opacity-50"}>
+      <div className={spotlight === 2 ? "fs-spotlight-active" : "fs-spotlight-idle"}>
         <SybilAttackTheater />
       </div>
-      <div className={spotlight === 3 ? "" : "opacity-50"}>
+      <div className={spotlight === 3 ? "fs-spotlight-active" : "fs-spotlight-idle"}>
         <FsCard active={spotlight === 3} className="space-y-4">
           <div>
             <FsEyebrow>Act 3</FsEyebrow>
@@ -90,7 +90,7 @@ export default function TheaterPage() {
           <CommitPanel />
         </FsCard>
       </div>
-      <div className={spotlight === 4 ? "" : "opacity-50"}>
+      <div className={spotlight === 4 ? "fs-spotlight-active" : "fs-spotlight-idle"}>
         <SybilTestPanel />
         {isVerified && (
           <p className="text-xs text-success mt-3 m-0">Step 1 complete — run the sybil wallet test next.</p>
