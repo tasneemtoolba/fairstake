@@ -98,7 +98,7 @@ Set the same env vars in Vercel dashboard. Copy the live URL into `docs/SUBMISSI
 
 ## Step 5 — Record demo video (~3 min)
 
-Follow **`docs/VIDEO_SCRIPT.md`** — lead with **The Sybil Test**:
+Record at **[/theater](https://fairstake.vercel.app/theater)** — lead with **The Sybil Test**:
 1. Verify → passport
 2. Commit Round 1
 3. New wallet → **reverts**

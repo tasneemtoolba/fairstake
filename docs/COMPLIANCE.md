@@ -28,7 +28,7 @@ Reference: [Event details & rules](https://ethglobal.com/events/ethonline2026/in
 
 Commit history shows incremental progress (contracts → API → frontend → testnet → docs → UX polish). See `git log --oneline`.
 
-Planning artifacts included in repo: `docs/PLAN.md`, `docs/ARCHITECTURE.md`, `docs/VIDEO_SCRIPT.md`, `docs/SUBMISSION.md`.
+Planning artifacts included in repo: `docs/PLAN.md`, `docs/ARCHITECTURE.md`, `docs/SUBMISSION.md`.
 
 ## AI tools
 
@@ -40,7 +40,7 @@ Documented in [AI_ATTRIBUTION.md](./AI_ATTRIBUTION.md). Summary: Cursor assisted
 |-------------|--------|
 | Submit before **Sun Sep 13, 12:00 pm EDT** | ⏳ Your action |
 | GitHub repo with version history | ✅ |
-| 2–4 min demo video, ≥720p, live voice | ⏳ Your action — see `VIDEO_SCRIPT.md` |
+| 2–4 min demo video, ≥720p, live voice | ⏳ Your action — see `DEMO_ONLY.md` |
 | Max **3** partner prizes (World · ENS · Arc) | ✅ Planned |
 | Disclose boilerplate + AI usage | ✅ This file + `AI_ATTRIBUTION.md` |
 | Demo video: no phone recording, no AI voiceover, no sped-up footage | ⏳ Your action |

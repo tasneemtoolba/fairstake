@@ -46,4 +46,4 @@ Built with Scaffold-ETH 2, World IDKit v4, InvestorPassportRegistry, FairStakePo
 - **Boilerplate:** Built on [Scaffold-ETH 2](https://github.com/scaffold-eth/scaffold-eth-2) — disclosed in README and [COMPLIANCE.md](./COMPLIANCE.md).
 - **Version control:** Incremental commit history during the hackathon (contracts → API → frontend → testnet → UX).
 - **AI tools:** Documented in [AI_ATTRIBUTION.md](./AI_ATTRIBUTION.md) — Cursor assisted UI/docs; contracts and on-chain logic human-reviewed.
-- **Demo video:** 2–4 minutes, ≥720p, live voice — follow [VIDEO_SCRIPT.md](./VIDEO_SCRIPT.md). No phone recording, AI voiceover, or sped-up footage.
+- **Demo video:** 2–4 minutes, ≥720p, live voice at [/theater](https://fairstake.vercel.app/theater). No phone recording, AI voiceover, or sped-up footage.

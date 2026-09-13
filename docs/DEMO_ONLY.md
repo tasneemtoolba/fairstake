@@ -23,6 +23,4 @@ cd fairstake && yarn start
 | **III** | Verify → passport → commit Round 1 | "World · ENS · Arc — live on testnet" |
 | **IV** | New wallet fails → Round 2 reuses passport | "Proof of person, not proof of passport" |
 
-Full script: `docs/VIDEO_SCRIPT.md`
-
 Submit: `docs/SUBMISSION.md` · Tags: **World · ENS · Arc**

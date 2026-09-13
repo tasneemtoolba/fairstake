@@ -50,7 +50,7 @@ The demo judges should remember:
 | 2 | Fresh wallet → commit | ❌ Reverts (not verified) |
 | 3 | Same passport → Round 2 | ✅ No second selfie |
 
-Try it live at [/theater](https://fairstake.vercel.app/theater) or follow [docs/VIDEO_SCRIPT.md](docs/VIDEO_SCRIPT.md).
+Try it live at [/theater](https://fairstake.vercel.app/theater).
 
 ---
 
@@ -152,7 +152,6 @@ fairstake/
 | Doc | Description |
 |-----|-------------|
 | [SUBMISSION.md](docs/SUBMISSION.md) | ETHGlobal form copy |
-| [VIDEO_SCRIPT.md](docs/VIDEO_SCRIPT.md) | 3-minute demo script |
 | [DEMO_ONLY.md](docs/DEMO_ONLY.md) | Minimal demo checklist |
 | [COMPLIANCE.md](docs/COMPLIANCE.md) | Hackathon rules & boilerplate disclosure |
 | [AI_ATTRIBUTION.md](docs/AI_ATTRIBUTION.md) | AI tool usage disclosure |
