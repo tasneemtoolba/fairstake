@@ -1,106 +1,173 @@
 # FairStake
 
-**Human-verified investing in onchain USDC pools** — eligibility without the KYC treadmill.
+**Proof of person, not proof of passport.**
 
-ETHGlobal Online submission targeting **World**, **ENS**, and **Arc** bounties.
+Sybil-resistant fair-launch USDC pools — verify once with World, carry an ENS-shaped investor passport, commit on Arc.
 
-## Stack
+**ETHGlobal Online 2026** · Sponsors: **World · ENS · Arc**
 
-| Layer | Tool |
-|-------|------|
+---
+
+## Links
+
+| | |
+|---|---|
+| **Live demo** | [fairstake.vercel.app](https://fairstake.vercel.app) |
+| **Judge Theater** | [fairstake.vercel.app/theater](https://fairstake.vercel.app/theater) |
+| **GitHub** | [github.com/tasneemtoolba/fairstake](https://github.com/tasneemtoolba/fairstake) |
+| **Arc pool** | [0x53fa…3766 on ArcScan](https://testnet.arcscan.io/address/0x53faf932922b322873d68cd21d0e3581b0273766) |
+| **Arc passport registry** | [0xb032…599c on ArcScan](https://testnet.arcscan.io/address/0xb032003194e0e03963c5ad9934813d8bca1e599c) |
+| **Sepolia passport registry** | [0x53fa…3766 on Etherscan](https://sepolia.etherscan.io/address/0x53faf932922b322873d68cd21d0e3581b0273766) |
+
+---
+
+## Problem
+
+Fair launches get **sybil-farmed**. Full document KYC is overkill for small community pools — but without human checks, bots grab allocations.
+
+## Solution
+
+FairStake separates **human eligibility** from **capital commitment**:
+
+1. **World Selfie Check** — one live human, one nullifier, enforced on-chain
+2. **Investor passport** — ENS-shaped credential, reusable across rounds
+3. **Arc USDC pool** — fair-launch commits with hard caps; sybils fail closed
+
+```
+World (verify)  →  ENS-shaped passport  →  Arc (USDC commit)
+   nullifier         portable credential      fail-closed pool
+```
+
+---
+
+## The Sybil Test
+
+The demo judges should remember:
+
+| Step | Action | Result |
+|------|--------|--------|
+| 1 | Verified wallet → commit Round 1 | ✅ Success |
+| 2 | Fresh wallet → commit | ❌ Reverts (not verified) |
+| 3 | Same passport → Round 2 | ✅ No second selfie |
+
+Try it live at [/theater](https://fairstake.vercel.app/theater) or follow [docs/VIDEO_SCRIPT.md](docs/VIDEO_SCRIPT.md).
+
+---
+
+## Sponsor integration
+
+| Sponsor | Integration |
+|---------|-------------|
+| **World** | IDKit v4 Selfie Check → server verify → on-chain credential + nullifier lock |
+| **ENS** | Investor passport with ENS-shaped naming (`*.investor.fairstake.eth`) anchored on `InvestorPassportRegistry` (Sepolia) |
+| **Arc** | `FairStakePool` on Arc Testnet — native USDC commits, per-investor caps, sybil fail-closed |
+
+Details: [docs/SPONSORS.md](docs/SPONSORS.md) · Architecture: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
+
+---
+
+## Tech stack
+
+| Layer | Tools |
+|-------|-------|
 | Monorepo | [Scaffold-ETH 2](https://github.com/scaffold-eth/scaffold-eth-2) |
-| Contracts | Hardhat + OpenZeppelin |
-| Frontend | Next.js + RainbowKit + wagmi |
-| Human proof | World Selfie Check |
-| Credential | ENSv2 Enhanced Access Control (Sepolia) |
+| Contracts | Solidity, Hardhat, OpenZeppelin |
+| Frontend | Next.js, React, Tailwind, daisyUI, wagmi, RainbowKit |
+| Human proof | [World IDKit v4](https://github.com/worldcoin/idkit-js) |
 | Settlement | Arc Testnet (USDC-native) |
+| Hosting | Vercel |
 
-## Quick start
+No off-chain database — passport state is anchored on-chain.
+
+---
+
+## Quick start (local)
 
 ```bash
+git clone https://github.com/tasneemtoolba/fairstake.git
 cd fairstake
 yarn install
-yarn chain          # local Hardhat (optional)
-yarn compile
-yarn test
-yarn start          # http://localhost:3000
+yarn chain          # Terminal 1 — local Hardhat
+yarn deploy && yarn demo:setup && yarn start   # Terminal 2
 ```
 
-### Deploy to Arc Testnet
+Open [http://localhost:3000/theater](http://localhost:3000/theater)
 
-1. Copy `.env.example` → `.env` and set `DEPLOYER_PRIVATE_KEY`
-2. Fund deployer from [Circle faucet](https://faucet.circle.com) (Arc Testnet)
-3. Deploy:
+### Tests
 
 ```bash
-yarn deploy:arc
+yarn compile
+yarn test           # 5 passing — FairStakePool + InvestorPassportRegistry
 ```
 
-## Project layout
+### Arc Testnet deploy
+
+```bash
+cp .env.example .env   # set DEPLOYER_PRIVATE_KEY
+# Fund wallet: https://faucet.circle.com (Arc Testnet)
+yarn deploy:arc
+yarn deploy:arc:setup
+```
+
+See [docs/ARC_DEPLOY.md](docs/ARC_DEPLOY.md) and [docs/WORLD_SETUP.md](docs/WORLD_SETUP.md).
+
+---
+
+## Project structure
 
 ```
 fairstake/
 ├── packages/hardhat/
-│   ├── contracts/FairStakePool.sol   # Human-gated USDC commit pool
-│   ├── deploy/                       # Rocketh deploy scripts
-│   └── test/                         # Contract tests
+│   ├── contracts/FairStakePool.sol              # Human-gated USDC commit pool
+│   ├── contracts/InvestorPassportRegistry.sol   # Passport anchor
+│   ├── deploy/                                  # Deploy scripts
+│   └── test/                                    # Contract tests
 ├── packages/nextjs/
-│   ├── app/                          # Next.js App Router
-│   ├── components/fairstake/         # FairStake UI
-│   ├── lib/world/                    # World verification stubs
-│   └── lib/ens/                      # ENS credential helpers
-└── docs/                             # Architecture & sponsor notes
+│   ├── app/theater/                             # Judge Theater demo
+│   ├── components/fairstake/                    # FairStake UI
+│   ├── lib/world/                               # World ID verification
+│   └── lib/ens/                                 # Credential helpers
+└── docs/                                        # Guides & submission copy
 ```
 
-## Flow
+---
 
-1. **Verify** — User completes World Selfie Check (unique human, not document KYC)
-2. **Credential** — Mint ENSv2 investor subname with scoped commit limits
-3. **Commit** — Invest USDC in a fair-launch round on Arc (contract enforces caps)
+## Environment variables
 
-## The Sybil Test (Finalist demo)
+**Local:** copy `packages/nextjs/.env.example` → `packages/nextjs/.env.local`
 
-1. **Verify** → mint investor passport  
-2. **Commit Round 1** → success  
-3. **Switch wallet** → commit **reverts** (fail-closed)  
-4. **Round 2** → same passport, **no second selfie**
+**Vercel:** import `packages/nextjs/.env.vercel` (see [docs/VERCEL_FIX.md](docs/VERCEL_FIX.md))
 
-See [docs/VIDEO_SCRIPT.md](docs/VIDEO_SCRIPT.md) and [/architecture](http://localhost:3000/architecture).
+| Variable | Purpose |
+|----------|---------|
+| `NEXT_PUBLIC_LIVE_DEPLOY` | `true` on Vercel — Arc Testnet, not Hardhat |
+| `NEXT_PUBLIC_ARC_RPC_URL` | Arc RPC (`https://rpc.testnet.arc.io`) |
+| `DEV_SKIP_WORLD_VERIFY` | Demo mode without World Portal keys |
+| `VERIFIER_PRIVATE_KEY` | Server key — issues credentials after verify |
 
-## Your actions (fund wallets, World app, submit)
+---
 
-**Start here:** [docs/YOUR_ACTIONS.md](docs/YOUR_ACTIONS.md)
+## Documentation
 
-## Demo & test
+| Doc | Description |
+|-----|-------------|
+| [SUBMISSION.md](docs/SUBMISSION.md) | ETHGlobal form copy |
+| [VIDEO_SCRIPT.md](docs/VIDEO_SCRIPT.md) | 3-minute demo script |
+| [DEMO_ONLY.md](docs/DEMO_ONLY.md) | Minimal demo checklist |
+| [COMPLIANCE.md](docs/COMPLIANCE.md) | Hackathon rules & boilerplate disclosure |
+| [AI_ATTRIBUTION.md](docs/AI_ATTRIBUTION.md) | AI tool usage disclosure |
+| [YOUR_ACTIONS.md](docs/YOUR_ACTIONS.md) | Fund wallets, World Portal, deploy |
 
-**Full walkthrough:** [docs/DEMO.md](docs/DEMO.md)
+---
 
-```bash
-# Terminal 1
-yarn chain
+## Built during ETHGlobal Online 2026
 
-# Terminal 2
-yarn deploy && yarn demo:setup && yarn start
-# → http://localhost:3000
-```
+- **Boilerplate:** [Scaffold-ETH 2](https://github.com/scaffold-eth/scaffold-eth-2) — monorepo, wagmi, deploy pipeline
+- **Built for FairStake:** contracts, World/ENS/Arc integration, Judge Theater UX, testnet deployments
+- **AI assistance:** documented in [docs/AI_ATTRIBUTION.md](docs/AI_ATTRIBUTION.md)
 
-## Docs
+---
 
-- [Build plan](docs/PLAN.md)
-- [Demo guide](docs/DEMO.md)
-- [Architecture](docs/ARCHITECTURE.md)
-- [Sponsors & bounties](docs/SPONSORS.md)
-- [World integration feedback](docs/world-feedback.md)
-- [ETHGlobal rules compliance](docs/COMPLIANCE.md)
-- [AI attribution](docs/AI_ATTRIBUTION.md)
+## License
 
-## Commands
-
-| Command | Description |
-|---------|-------------|
-| `yarn start` | Dev frontend |
-| `yarn chain` | Local Hardhat node |
-| `yarn compile` | Compile contracts |
-| `yarn test` | Run Hardhat tests |
-| `yarn deploy` | Deploy to default network |
-| `yarn deploy:arc` | Deploy to Arc Testnet |
+See [LICENCE](LICENCE).
