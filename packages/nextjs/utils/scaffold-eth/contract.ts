@@ -90,9 +90,16 @@ type ContractsDeclaration = IsContractDeclarationMissing<GenericContractsDeclara
 
 type Contracts = ContractsDeclaration[ConfiguredChainId];
 
-export type ContractName = keyof Contracts;
+/** Union across target networks — Sepolia only has passport; Arc/Hardhat have the pool. */
+export type ContractName = {
+  [ChainId in ConfiguredChainId]: keyof ContractsDeclaration[ChainId];
+}[ConfiguredChainId];
 
-export type Contract<TContractName extends ContractName> = Contracts[TContractName];
+export type Contract<TContractName extends ContractName> = {
+  [ChainId in ConfiguredChainId]: TContractName extends keyof ContractsDeclaration[ChainId]
+    ? ContractsDeclaration[ChainId][TContractName]
+    : never;
+}[ConfiguredChainId];
 
 type InferContractAbi<TContract> = TContract extends { abi: infer TAbi } ? TAbi : never;
 

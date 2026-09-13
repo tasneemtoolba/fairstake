@@ -16,7 +16,7 @@ const chainsWithMainnet = activeTargetNetworks.find((network: Chain) => network.
   ? activeTargetNetworks
   : ([...activeTargetNetworks, mainnet] as const);
 
-export const enabledChains = chainsWithMainnet as readonly [Chain, ...Chain[]];
+export const enabledChains = [...chainsWithMainnet] as unknown as [Chain, ...Chain[]];
 
 export const wagmiConfig = createConfig({
   chains: enabledChains,
