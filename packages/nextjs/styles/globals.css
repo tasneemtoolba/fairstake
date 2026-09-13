@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --shadow-fs-card: 0 1px 2px rgb(30 41 59 / 0.04), 0 4px 16px rgb(30 41 59 / 0.06);
+  --shadow-fs-elevated: 0 8px 30px rgb(30 41 59 / 0.08);
+}
+
+@plugin "daisyui" {
+  themes: fairstake --default, fairstake-dark --prefersdark;
+}
+
+/* FairStake light — warm paper + ink + passport gold */
+@plugin "daisyui/theme" {
+  name: "fairstake";
+
+  --color-primary: #1e293b;
+  --color-primary-content: #faf9f7;
+  --color-secondary: #f3f1ec;
+  --color-secondary-content: #1e293b;
+  --color-accent: #9a7b2e;
+  --color-accent-content: #faf9f7;
+  --color-neutral: #334155;
+  --color-neutral-content: #faf9f7;
+  --color-base-100: #faf9f7;
+  --color-base-200: #f3f1ec;
+  --color-base-300: #e5e1d9;
+  --color-base-content: #1e293b;
+  --color-info: #475569;
+  --color-success: #166534;
+  --color-warning: #a16207;
+  --color-error: #b91c1c;
+
+  --radius-field: 0.375rem;
+  --radius-box: 0.625rem;
+  --radius-selector: 0.375rem;
+}
+
+@plugin "daisyui/theme" {
+  name: "fairstake-dark";
+
+  --color-primary: #e2e8f0;
+  --color-primary-content: #0f172a;
+  --color-secondary: #1e293b;
+  --color-secondary-content: #e2e8f0;
+  --color-accent: #c9a227;
+  --color-accent-content: #0f172a;
+  --color-neutral: #cbd5e1;
+  --color-neutral-content: #0f172a;
+  --color-base-100: #0f172a;
+  --color-base-200: #1e293b;
+  --color-base-300: #334155;
+  --color-base-content: #e2e8f0;
+  --color-info: #94a3b8;
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+
+  --radius-field: 0.375rem;
+  --radius-box: 0.625rem;
+  --radius-selector: 0.375rem;
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-base-300);
+  }
+
+  body {
+    min-height: 100vh;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin-bottom: 0.5rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+  }
+}
+
+:root,
+[data-theme] {
+  background: var(--color-base-200);
+}
+
+.btn {
+  box-shadow: none;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.08);
+}
+
+.btn-outline {
+  border-color: var(--color-base-300);
+  color: var(--color-base-content);
+}
+
+.link {
+  text-underline-offset: 3px;
+  color: var(--color-accent);
+}
+
+.link:hover {
+  opacity: 0.85;
+}
+
+/* FairStake design tokens */
+.fs-eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-base-content) 55%, transparent);
+}
+
+.fs-card {
+  background: var(--color-base-100);
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box);
+  box-shadow: var(--shadow-fs-card);
+}
+
+.fs-card-active {
+  border-color: color-mix(in srgb, var(--color-accent) 45%, var(--color-base-300));
+  box-shadow: var(--shadow-fs-elevated);
+}
+
+.fs-divider-gold {
+  height: 3px;
+  width: 2.5rem;
+  background: linear-gradient(90deg, var(--color-accent), transparent);
+  border-radius: 999px;
+}
+
+.fs-partner {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--color-base-content) 70%, transparent);
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: 999px;
+  background: var(--color-base-100);
+}
